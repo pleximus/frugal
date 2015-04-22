@@ -1,6 +1,6 @@
 CREATE TABLE users (
     id serial PRIMARY KEY,
-    username character varying(255) NOT NULL,
+    username character varying(255) UNIQUE NOT NULL,
     hash character varying(256) NOT NULL,
     salt character varying(255) NOT NULL,
     created_at timestamp without time zone NOT NULL,
