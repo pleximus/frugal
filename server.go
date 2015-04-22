@@ -25,30 +25,30 @@ func assetsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
-  t, err := template.ParseFiles("./templates/base.html", "./templates/login.html")
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
-  t.Execute(w, nil)
+	t, err := template.ParseFiles("./templates/base.html", "./templates/login.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	t.Execute(w, nil)
 }
 
 func signupHandler(w http.ResponseWriter, r *http.Request) {
-  t, err := template.ParseFiles("./templates/base.html", "./templates/signup.html")
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
-  t.Execute(w, nil)
+	t, err := template.ParseFiles("./templates/base.html", "./templates/signup.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	t.Execute(w, nil)
 }
 
 func expenseHandler(w http.ResponseWriter, r *http.Request) {
-  t, err := template.ParseFiles("./templates/base.html", "./templates/expense.html")
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
-  }
-  t.Execute(w, nil)
+	t, err := template.ParseFiles("./templates/base.html", "./templates/expense.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	t.Execute(w, nil)
 }
 
 func StartServer(host, port string) error {
@@ -60,7 +60,7 @@ func StartServer(host, port string) error {
 
 	router.HandleFunc(`/user/login/`, loginHandler)
 	router.HandleFunc(`/user/signup/`, signupHandler)
-  router.HandleFunc(`/user/expense/`, expenseHandler)
+	router.HandleFunc(`/user/expense/`, expenseHandler)
 
 	http.Handle("/", router)
 
