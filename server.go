@@ -25,11 +25,21 @@ func assetsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
-
+  t, err := template.ParseFiles("./templates/base.html", "./templates/login.html")
+  if err != nil {
+    http.Error(w, err.Error(), http.StatusInternalServerError)
+    return
+  }
+  t.Execute(w, nil)
 }
 
 func signupHandler(w http.ResponseWriter, r *http.Request) {
-
+  t, err := template.ParseFiles("./templates/base.html", "./templates/signup.html")
+  if err != nil {
+    http.Error(w, err.Error(), http.StatusInternalServerError)
+    return
+  }
+  t.Execute(w, nil)
 }
 
 func StartServer(host, port string) error {
